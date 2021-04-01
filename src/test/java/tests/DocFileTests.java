@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static utils.Files.readTextFromDocxPath;
 import static utils.Files.readTextFromPath;
 
 public class DocFileTests {
@@ -14,7 +15,7 @@ public class DocFileTests {
         String docFilePath = "./src/test/resources/files/1.doc";
         String expectedData = "Text to check";
 
-        String actualData = readTextFromPath(docFilePath);
+        String actualData = readTextFromDocxPath(docFilePath);
         assertThat(actualData, containsString(expectedData));
     }
 
@@ -23,7 +24,7 @@ public class DocFileTests {
         String docxFilePath = "./src/test/resources/files/1.docx";
         String expectedData = "Text to check";
 
-        String actualData = readTextFromPath(docxFilePath);
+        String actualData = readTextFromDocxPath(docxFilePath);
         assertThat(actualData, containsString(expectedData));
     }
 }

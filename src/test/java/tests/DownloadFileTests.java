@@ -16,12 +16,13 @@ public class DownloadFileTests {
 
     @Test
     void selenideDownloadReadmeTest() throws IOException {
-        Configuration.downloadsFolder = "downloads";
+        Configuration.downloadsFolder = "./downloads";
+        String expectedText = "Selenide = UI Testing Framework powered by Selenium WebDriver";
 
         open("https://github.com/selenide/selenide/blob/master/README.md");
         File downloadedFile = $("#raw-url").download();
         String fileContent = Files.readTextFromFile(downloadedFile);
 
-        assertThat(fileContent, containsString("Selenide = UI Testing Framework powered by Selenium WebDriver"));
+        assertThat(fileContent, containsString(expectedText));
     }
 }

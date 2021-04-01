@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import org.apache.poi.xwpf.*;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static utils.Files.readTextFromPath;
@@ -21,7 +19,7 @@ public class DocFileTests {
     }
 
     @Test
-    void docsTest() throws IOException {
+    void docxTest() throws IOException {
         String docxFilePath = "./src/test/resources/files/1.docx";
         String expectedData = "Text to check";
 

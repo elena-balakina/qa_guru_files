@@ -31,18 +31,18 @@ public class XlsFileTests {
         ReportRow expectedRow1 = new ReportRow("10001", "Apples", "100");
         ReportRow expectedRow2 = new ReportRow("10002", "Tables", "200");
 
-        ReportRow actualRow1 = new ReportRow(
-                getIntegerPart(xls.excel.getSheetAt(0).getRow(1).getCell(0).toString()),
-                xls.excel.getSheetAt(0).getRow(1).getCell(1).toString(),
-                getIntegerPart(xls.excel.getSheetAt(0).getRow(1).getCell(2).toString()));
-
-        ReportRow actualRow2 = new ReportRow(
-                getIntegerPart(xls.excel.getSheetAt(0).getRow(2).getCell(0).toString()),
-                xls.excel.getSheetAt(0).getRow(2).getCell(1).toString(),
-                getIntegerPart(xls.excel.getSheetAt(0).getRow(2).getCell(2).toString()));
+        ReportRow actualRow1 = createReportRowFromRow(xls, 1);
+        ReportRow actualRow2 = createReportRowFromRow(xls, 2);
 
         assertThat(actualRow1, equalTo(expectedRow1));
         assertThat(actualRow2, equalTo(expectedRow2));
+    }
+
+    private ReportRow createReportRowFromRow(XLS xlsFile, int rowNumber) {
+        return new ReportRow(
+                getIntegerPart(xlsFile.excel.getSheetAt(0).getRow(rowNumber).getCell(0).toString()),
+                xlsFile.excel.getSheetAt(0).getRow(rowNumber).getCell(1).toString(),
+                getIntegerPart(xlsFile.excel.getSheetAt(0).getRow(rowNumber).getCell(2).toString()));
     }
 
     @Test

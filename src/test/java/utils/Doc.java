@@ -2,7 +2,7 @@ package utils;
 
 import java.io.*;
 
-public class ReadDocFiles {
+public class Doc {
 /*
     File file = null;
     WordExtractor extractor = null;

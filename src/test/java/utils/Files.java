@@ -57,7 +57,7 @@ public class Files {
             while (cells.hasNext()) {
                 Cell cell = cells.next();
                 CellType cellType = cell.getCellType();
-                //перебираем возможные типы ячеек
+                //перебираем возможные типы ячеек(search through all possible values)
                 switch (cellType) {
 //                    case Cell.CELL_TYPE_STRING:
 //                        result += cell.getStringCellValue() + "=";
